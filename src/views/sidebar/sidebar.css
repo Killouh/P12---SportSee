@@ -1,0 +1,36 @@
+.sidebar{
+    position: fixed;
+    display: flex;
+    left: 0;
+    width: 7%;
+    height: 100%;
+    background-color: black;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.2);
+    
+}
+.navSidebar{
+    display: flex;
+    flex-direction: column;
+    gap: 2.5%;
+    padding-top:200px;
+    width: 100%;
+}
+
+.sidebarTextContainer {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: flex-start
+  }
+
+.sidebarText
+{
+    color: white;
+    font-size: 20px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: "roboto";
+    text-align: center;
+    
+}

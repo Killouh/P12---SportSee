@@ -1,0 +1,35 @@
+.header{
+    display: flex;
+    height: 68px;
+    padding-right: 10%;
+    padding-top: 30px;
+    align-content: center;
+    background-color: black;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.logoSportSee{
+    height: 58px;
+    padding-left: 30px;
+}
+
+.navbarHeader{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 100px;
+    width: 100%;
+
+}
+
+.navText{
+    display: flex;
+    color: white;
+    text-decoration : none;
+    font-size: 24px;
+    height: 58px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 68px;
+    font-family: "roboto";
+}
