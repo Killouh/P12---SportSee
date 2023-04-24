@@ -1,20 +1,36 @@
-import React from 'react'
-import './home.css';
-import { useState, useEffect } from 'react';
+import React from "react";
+import "./home.css";
+// import { useState, useEffect } from 'react';
 // import data from "../../data/data.json";
-import { Link } from "react-router-dom";
-
-
+// import { useParams } from 'react-router-dom';
+// import { Link } from "react-router-dom";
 
 export default function Home() {
+  // const [prenom, setPrenom] = useState([]);
+  // const { id } = useParams();
 
-    return (
-        <div className="body-home">
-            <div className="background_title">
-                <div className="title_img">
-                    <h2 className="title_home">Chez vous, partout et ailleurs</h2>
-                </div>
-            </div>
-        </div>
-    );
+  // useEffect(() => {
+  //   setPrenom(data);
+  // }, []);
+
+
+  return (
+    <div className="body_home">
+      <div className="title_home">
+        <h2 className="title_home_text">
+          Bonjour <span className="username_text">Thomas</span>
+        </h2>
+        <p className="title_text">
+          Félicitation ! Vous avez explosé vos objectifs hier
+        </p>
+      </div>
+      <div className="compenents_container">
+      <div className="activitysession_container">
+        <div className="activity"></div>
+        <div className="session"></div>
+      </div>
+      <div className="energy"></div>
+    </div>
+    </div>
+  );
 }

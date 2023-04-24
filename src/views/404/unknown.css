@@ -1,0 +1,47 @@
+.unknown_container{
+    width: 93%;
+    margin-left:7%;
+}
+
+.unknown_title {
+    justify-content: center;
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 200px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: black;
+    }
+    
+    .unknown_text {
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 36px;
+        line-height: 142.6%;
+        display: flex;
+        align-items: flex-end;
+        text-align: center;
+        color: black;
+        margin-top: 10px;
+        justify-content: center;
+    }
+    
+    .backhome {
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 142.6%;
+        display: flex;
+        align-items: flex-end;
+        text-decoration-line: underline;
+        text-align: center;
+        justify-content: center;
+        margin-top: 8%;
+        color: black;
+        margin-bottom: 100px;
+    
+    }
