@@ -1,5 +1,7 @@
 import React from "react";
 import "./home.css";
+
+
 // import { useState, useEffect } from 'react';
 // import data from "../../data/data.json";
 // import { useParams } from 'react-router-dom';
@@ -25,12 +27,13 @@ export default function Home() {
         </p>
       </div>
       <div className="compenents_container">
-      <div className="activitysession_container">
-        <div className="activity"></div>
-        <div className="session"></div>
+        <div className="activitysession_container">
+          <div className="activity"></div>
+
+          <div className="session"></div>
+        </div>
+        <div className="energy"></div>
       </div>
-      <div className="energy"></div>
-    </div>
     </div>
   );
 }

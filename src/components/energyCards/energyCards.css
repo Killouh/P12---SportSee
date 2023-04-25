@@ -1,0 +1,58 @@
+p {
+    font: "roboto";
+    font-weight: bold;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10%;
+    height: 119px;
+    width: 258px;
+    border-radius: 5px;
+    background: rgba(211, 211, 211, 0.1);
+    margin-bottom: 10px;
+}
+
+.logo_card {
+    display: flex;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.logo_container {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    mix-blend-mode: normal;
+    background: rgba(249, 206, 35, 0.15);
+    opacity: 0.5;
+    border-radius: 6px;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.logo_energy {
+    color: rgba(253, 204, 12, 1);
+}
+
+.cardtxt_content {
+    display: flex;
+    flex-direction: column;
+    height: 60px;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.number_content {
+    margin: 0;
+    color: #282D30;
+}
+
+.text_content {
+    margin: 0;
+    color: #74798C;
+}

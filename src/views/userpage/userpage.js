@@ -4,6 +4,11 @@ import { useParams, useNavigate } from 'react-router-dom';
 import data from '../../data/data.json';
 import './userpage.css';
 
+// Components :
+import ActivityCharts from '../../components/activityCharts/activityCharts';
+import EnergyCards from '../../components/energyCards/energyCards';
+import SessionsCharts from '../../components/sessionsCharts/sessionsCharts';
+
 export default function UserPage() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -33,6 +38,7 @@ export default function UserPage() {
     }
   }, [id, navigate]);
 
+
   return (
     <div className="body_home">
       <div className="title_home">
@@ -43,11 +49,24 @@ export default function UserPage() {
       </div>
       <div className="compenents_container">
         <div className="activitysession_container">
-          <div className="activity"></div>
-          <div className="session"></div>
+          <div className="activity">
+          <ActivityCharts className="activityCharts_location" id={id} />
+          </div>
+          <div className="session">
+          <SessionsCharts className="sessions_location" id={id} type="lineChart" />
+          <SessionsCharts className="sessions_location" id={id} type="radarChart" />
+          <SessionsCharts className="sessions_location" id={id} type="radialBarChart" />
+          
+          </div>
         </div>
-        <div className="energy"></div>
+        <div className="energycards_container">
+        <EnergyCards className="energycards_location" type="calorieCount" />
+        <EnergyCards className="energycards_location" type="proteinCount" />
+        <EnergyCards className="energycards_location" type="carbohydrateCount" />
+        <EnergyCards className="energycards_location" type="lipidCount" />
+        </div>
       </div>
     </div>
   );
 }
+

@@ -30,19 +30,23 @@
 }
 
 .activitysession_container{
-    width: 80%;
+    width: 75%;
     display: flex;
     flex-direction: column;
 }
 
 .activity{
     width: 100%;
+    margin-left:12%;
 }
 
 .session{
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-left: 10.5%;
 }
 
-.energy{
+.energycards_container{
     width: 20%;
 }
