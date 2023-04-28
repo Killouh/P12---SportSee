@@ -5,9 +5,12 @@ import data from '../../data/data.json';
 import './userpage.css';
 
 // Components :
-import ActivityCharts from '../../components/activityCharts/activityCharts';
-import EnergyCards from '../../components/energyCards/energyCards';
-import SessionsCharts from '../../components/sessionsCharts/sessionsCharts';
+import ActivityCharts from '../../components/activitycharts/activitycharts';
+import EnergyCards from '../../components/energycards/energycards';
+import SessionsCharts from '../../components/sessionscharts/sessionscharts';
+import RadarCharts from '../../components/radarcharts/radarcharts';
+import RadialBarCharts from '../../components/radialbarcharts/radialbarcharts'
+
 
 export default function UserPage() {
   const { id } = useParams();
@@ -50,20 +53,19 @@ export default function UserPage() {
       <div className="compenents_container">
         <div className="activitysession_container">
           <div className="activity">
-          <ActivityCharts className="activityCharts_location" id={id} />
+            <ActivityCharts className="activityCharts_location" id={id} />
           </div>
           <div className="session">
-          <SessionsCharts className="sessions_location" id={id} type="lineChart" />
-          <SessionsCharts className="sessions_location" id={id} type="radarChart" />
-          <SessionsCharts className="sessions_location" id={id} type="radialBarChart" />
-          
+            <SessionsCharts className="sessions_location" id={id} />
+            <RadarCharts className="sessions_location" id={id} />
+            <RadialBarCharts className="sessions_location" id={id} />
           </div>
         </div>
         <div className="energycards_container">
-        <EnergyCards className="energycards_location" type="calorieCount" />
-        <EnergyCards className="energycards_location" type="proteinCount" />
-        <EnergyCards className="energycards_location" type="carbohydrateCount" />
-        <EnergyCards className="energycards_location" type="lipidCount" />
+          <EnergyCards className="energycards_location" id={id} type="calorieCount" />
+          <EnergyCards className="energycards_location" id={id} type="proteinCount" />
+          <EnergyCards className="energycards_location" id={id} type="carbohydrateCount" />
+          <EnergyCards className="energycards_location" id={id} type="lipidCount" />
         </div>
       </div>
     </div>

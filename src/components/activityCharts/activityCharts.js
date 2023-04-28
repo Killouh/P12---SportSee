@@ -1,6 +1,6 @@
-import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
 import data from '../../data/data.json';
-import './activityCharts.css';
+import './activitycharts.css';
 
 export default function activityCharts(props){
     const { id } = props;
@@ -25,6 +25,7 @@ const CustomTick = ({ x, y, payload }) => {
   };
 
     return (
+      <ResponsiveContainer width="76%" height={260}>
         <BarChart width={858} height={300} data={flattenedData}>
             <XAxis stroke="#8884d8" tick={<CustomTick />} />
             <YAxis orientation="right"  />
@@ -33,6 +34,7 @@ const CustomTick = ({ x, y, payload }) => {
             <Bar dataKey="kilogram" fill="#282D30" barSize={30} />
             <Bar dataKey="calories" fill="#E60000" barSize={30} />
           </BarChart>
+          </ResponsiveContainer>
         
     );
     
