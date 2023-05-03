@@ -1,26 +1,40 @@
-import data from '../../data/data.json';
 import './radarcharts.css';
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer } from 'recharts';
+import { getUserPerformance } from '../../api/api';
+import { useParams } from 'react-router';
+import React, {useState,useEffect} from 'react';
 
-export default function radarCharts(props) {
-  const { id } = props;
-  const userId = parseInt(id);
+export default function RadarCharts(props) {
+  const [data, setData] = useState([]);
+	const {id} = useParams();
 
-
-
-
-const flattenedData = data.USER_PERFORMANCE
-  .filter(user => user.userId === userId)
-  .reduce((acc, user) => {
-    return [
-      ...acc,
-      ...user.data.map(session => ({
-        userId: user.userId,
-        kind: data.USER_PERFORMANCE[0].kind[session.kind],
-        value: session.value
-      }))
-    ];
-  }, []);
+    useEffect(() => {
+		const getData = async () => {
+			const request = await getUserPerformance(id);
+			if (!request) return alert('data error');
+			const formatData = request.data.data.map((data) => {
+				switch (data.kind) {
+					case 1:
+						return { ...data, kind: 'Cardio' };
+					case 2:
+						return { ...data, kind: 'Energie' };
+					case 3:
+						return { ...data, kind: 'Endurance' };
+					case 4:
+						return { ...data, kind: 'Force' };
+					case 5:
+						return { ...data, kind: 'Vitesse' };
+					case 6:
+						return { ...data, kind: 'Intensité' };
+					default:
+						return {...data };
+				}
+			});
+			setData(formatData);
+		};
+		getData();
+	}, [id]);
+	if (data.length === 0) return null;
   
 
 
@@ -30,12 +44,11 @@ const flattenedData = data.USER_PERFORMANCE
 
 
     <ResponsiveContainer width="25%" height={260}>
-      <RadarChart outerRadius={90} width={730} height={250} data={flattenedData}>
+      <RadarChart outerRadius={90} width={730} height={250} data={data}>
         <PolarGrid />
         <PolarAngleAxis dataKey="kind" />
         <PolarRadiusAxis angle={30} domain={[0, 150]} tickFormatter={() => ''} />
-        <Radar name="Mike" dataKey="kind" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-        <Radar name="Lily" dataKey="value" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6} />
+        <Radar dataKey="value" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6} />
       </RadarChart>
     </ResponsiveContainer>
   );

@@ -5,25 +5,9 @@ import energy from '../../assets/energy.png';
 import chicken from '../../assets/chicken.png'
 import cheeseburger from '../../assets/cheeseburger.png'
 
-export default function energyCards(props) {
-    const { id, type } = props;
-    const userId = parseInt(id);
-
-    const flattenedData = data.USER_MAIN_DATA
-        .filter(user => user.id === userId)
-        .reduce((acc, user) => {
-            return [
-                ...acc,
-                { energyNumber: user.keyData[type], energyText:[type]},
-            ]
-        }, []);
-
-        console.log(flattenedData);
-        const energyNumbers = flattenedData.map(item => item.energyNumber);
-        const energyText = flattenedData.map(item => item.energyText);
-
-        console.log(energyNumbers);
-        console.log(energyText);
+export default function EnergyCards(props) {
+    
+    const { info, text, type } = props;
 
         let logoSrc;
         switch (type) {
@@ -70,8 +54,8 @@ export default function energyCards(props) {
                     <img className ='logo_energy' src={logoSrc} alt="Logo des glucides" /></div>
             </div>
             <div className='cardtxt_content'>
-                <p className='number_content'>{energyNumbers}</p>
-                <p className='text_content'>{energyText}</p>
+                <p className='number_content'>{info}</p>
+                <p className='text_content'>{text}</p>
             </div>
         </div>
     );
