@@ -1,13 +1,12 @@
 import './radarcharts.css';
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer } from 'recharts';
 import { getUserPerformance } from '../../api/api';
-import { useParams } from 'react-router';
 import React, {useState,useEffect} from 'react';
+import PropTypes from 'prop-types';
 
 export default function RadarCharts(props) {
   const [data, setData] = useState([]);
-	const {id} = useParams();
-
+  const { id } = props;
     useEffect(() => {
 		const getData = async () => {
 			const request = await getUserPerformance(id);
@@ -40,9 +39,6 @@ export default function RadarCharts(props) {
 
 
   return (
-
-
-
     <ResponsiveContainer width="25%" height={260}>
       <RadarChart outerRadius={90} width={730} height={250} data={data}>
         <PolarGrid />
@@ -54,3 +50,7 @@ export default function RadarCharts(props) {
   );
 
 };
+
+RadarCharts.propTypes = {
+	id: PropTypes.string,
+  }

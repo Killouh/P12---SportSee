@@ -10,6 +10,7 @@ import {
 import "./activitycharts.css";
 import { getUserActivity } from "../../api/api";
 import { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
 
 export default function ActivityCharts(props) {
   const { id } = props;
@@ -50,3 +51,7 @@ export default function ActivityCharts(props) {
     </ResponsiveContainer>
   );
 }
+
+ActivityCharts.propTypes = {
+	id: PropTypes.string,
+  }

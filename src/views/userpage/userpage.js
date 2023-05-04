@@ -5,6 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import "./userpage.css";
 import { getUserInfos } from "../../api/api";
 
+
 // Components :
 import ActivityCharts from "../../components/activitycharts/activitycharts";
 import EnergyCards from "../../components/energycards/energycards";
@@ -83,3 +84,4 @@ export default function UserPage() {
     </div>
   );
 }
+

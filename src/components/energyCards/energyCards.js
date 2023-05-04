@@ -1,9 +1,9 @@
-import data from '../../data/data.json';
 import './energycards.css';
 import apple from '../../assets/apple.png';
 import energy from '../../assets/energy.png';
 import chicken from '../../assets/chicken.png'
 import cheeseburger from '../../assets/cheeseburger.png'
+import PropTypes from 'prop-types';
 
 export default function EnergyCards(props) {
     
@@ -60,3 +60,9 @@ export default function EnergyCards(props) {
         </div>
     );
 }
+
+EnergyCards.propTypes = {
+	info: PropTypes.string,
+    text: PropTypes.string,
+    type: PropTypes.string,
+  }

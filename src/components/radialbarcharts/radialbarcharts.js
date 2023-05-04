@@ -5,8 +5,9 @@ import {
   ResponsiveContainer,
   PolarAngleAxis,
 } from "recharts";
+import PropTypes from 'prop-types';
 
-export default function radialBarCharts(props) {
+export default function RadialBarCharts(props) {
   const { data } = props;
 
   const score = [
@@ -35,3 +36,7 @@ export default function radialBarCharts(props) {
     </ResponsiveContainer>
   );
 }
+
+RadialBarCharts.propTypes = {
+	 data: PropTypes.object,
+  }

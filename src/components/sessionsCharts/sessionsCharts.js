@@ -12,6 +12,7 @@ import {
 import { getUserAverageSessions } from "../../api/api";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 
 export default function SesssionsCharts(props) {
@@ -62,3 +63,8 @@ export default function SesssionsCharts(props) {
    </ResponsiveContainer>
   );
 }
+
+
+SesssionsCharts.propTypes = {
+	id: PropTypes.string,
+  }
