@@ -3,8 +3,8 @@ import {Routes, Route} from 'react-router-dom';
 import Home from "./views/home/home";
 import Userpage from "./views/userpage/userpage";
 import Unknown from "./views/404/unknown";
-import Navbar from './views/header/header';
-import Sidebar from './views/sidebar/sidebar';
+import Navbar from './components/header/header';
+import Sidebar from './components/sidebar/sidebar';
 
 function App() {
   return (

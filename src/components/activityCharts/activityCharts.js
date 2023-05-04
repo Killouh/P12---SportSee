@@ -10,7 +10,15 @@ import {
 import "./activitycharts.css";
 import { getUserActivity } from "../../api/api";
 import { useState, useEffect } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+
+/**
+ * Get the user activity and render the BarChart called from userpage
+ *
+ * @param {string} id User id
+ * @param {id: number, session[] }, An Array with user information data
+ * @returns {JSX}
+ */
 
 export default function ActivityCharts(props) {
   const { id } = props;
@@ -27,7 +35,7 @@ export default function ActivityCharts(props) {
   }, [id]);
   if (data.length === 0) return null;
 
-  // Fonction personnalisée pour les ticks de l'axe des abscisses
+  // Customised function for axe's ticks
   const CustomTick = ({ x, y, payload }) => {
     return (
       <g transform={`translate(${x},${y})`}>
@@ -53,5 +61,5 @@ export default function ActivityCharts(props) {
 }
 
 ActivityCharts.propTypes = {
-	id: PropTypes.string,
-  }
+  id: PropTypes.string,
+};

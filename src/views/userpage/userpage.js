@@ -1,10 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-// import data from '../../data/data.json';
 import "./userpage.css";
 import { getUserInfos } from "../../api/api";
-
 
 // Components :
 import ActivityCharts from "../../components/activitycharts/activitycharts";
@@ -12,6 +10,14 @@ import EnergyCards from "../../components/energycards/energycards";
 import SessionsCharts from "../../components/sessionscharts/sessionscharts";
 import RadarCharts from "../../components/radarcharts/radarcharts";
 import RadialBarCharts from "../../components/radialbarcharts/radialbarcharts";
+
+/**
+ * Get the user information and render the front with the fetched data.
+ *
+ * @param {string} id User id
+ * @param {data[id: number, userInfos:{}, todayScore: number, keyData{}] }, An Array with user information data
+ * @returns {JSX}
+ */
 
 export default function UserPage() {
   const [data, setData] = useState([]);
@@ -26,14 +32,16 @@ export default function UserPage() {
     };
     getData();
   }, [id, navigate]);
+
+  // If the data is still being fetched, don't render anything.
   if (data.length === 0) return null;
 
   return (
     <div className="body_home">
       <div className="title_home">
         <h2 className="title_home_text">
-          Bonjour{" "}
-          <span className="username_text">{data.userInfos.firstName}</span>
+          Bonjour
+          <span className="username_text"> {data.userInfos.firstName}</span>
         </h2>
         <p className="title_text">
           Félicitation ! Vous avez explosé vos objectifs hier 👏
@@ -53,28 +61,28 @@ export default function UserPage() {
         <div className="energycards_container">
           <EnergyCards
             className="energycards_location"
-            info={`${data.keyData.calorieCount} kCal`}
-            text="Calories"
-            id={id}
-            type="calorieCount"
-          />
-          <EnergyCards
-            className="energycards_location"
-            info={`${data.keyData.proteinCount} g`}
-            text="Proteines"
-            id={id}
-            type="proteinCount"
-          />
-          <EnergyCards
-            className="energycards_location"
-            info={`${data.keyData.carbohydrateCount} g`}
+            info={`${data.keyData.carbohydrateCount}g`}
             text="Glucides"
             id={id}
             type="carbohydrateCount"
           />
           <EnergyCards
             className="energycards_location"
-            info={`${data.keyData.lipidCount} g`}
+            info={`${data.keyData.proteinCount}g`}
+            text="Proteines"
+            id={id}
+            type="proteinCount"
+          />
+          <EnergyCards
+            className="energycards_location"
+            info={`${data.keyData.calorieCount}kCal`}
+            text="Calories"
+            id={id}
+            type="calorieCount"
+          />
+          <EnergyCards
+            className="energycards_location"
+            info={`${data.keyData.lipidCount}g`}
             text="Lipides"
             id={id}
             type="lipidCount"
@@ -84,4 +92,3 @@ export default function UserPage() {
     </div>
   );
 }
-

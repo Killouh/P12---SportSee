@@ -5,7 +5,13 @@ import {
   ResponsiveContainer,
   PolarAngleAxis,
 } from "recharts";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+
+/**
+ * Get the user info and render the energy cards called from userpage
+ * @param {props[data{}]}, Props from getUserInfos called from userpage
+ * @returns {JSX}
+ */
 
 export default function RadialBarCharts(props) {
   const { data } = props;
@@ -38,5 +44,5 @@ export default function RadialBarCharts(props) {
 }
 
 RadialBarCharts.propTypes = {
-	 data: PropTypes.object,
-  }
+  data: PropTypes.object,
+};
