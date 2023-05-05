@@ -11,6 +11,7 @@ import "./activitycharts.css";
 import { getUserActivity } from "../../api/api";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import ActivityToolType from "./activitytooltype";
 
 /**
  * Get the user activity and render the BarChart called from userpage
@@ -39,7 +40,7 @@ export default function ActivityCharts(props) {
   const CustomTick = ({ x, y, payload }) => {
     return (
       <g transform={`translate(${x},${y})`}>
-        <text x={0} y={0} dy={16} textAnchor="middle" fill="#666">
+        <text x={0} y={0} dy={16} textAnchor="middle" stroke="#9B9EAC">
           {payload.value + 1}
         </text>
       </g>
@@ -47,16 +48,46 @@ export default function ActivityCharts(props) {
   };
 
   return (
-    <ResponsiveContainer width="76%" height={260}>
-      <BarChart width={858} height={300} data={data}>
-        <XAxis stroke="#8884d8" tick={<CustomTick />} />
-        <YAxis orientation="right" />
-        <Tooltip wrapperStyle={{ width: 100, backgroundColor: "#ccc" }} />
-        <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-        <Bar dataKey="kilogram" fill="#282D30" barSize={30} />
-        <Bar dataKey="calories" fill="#E60000" barSize={30} />
-      </BarChart>
-    </ResponsiveContainer>
+    <div className="activity_container">
+      <div className="activity_title">
+        <h2>Activité quotidienne</h2>
+        <div className="activity_legend">
+          <div className="activity_info">
+            <div className="activity_info_icon kg"></div>
+            <p className="activity_info_text kg">Poids (kg)</p>
+          </div>
+          <div className="activity_info">
+            <div className="activity_info_icon cal"></div>
+            <p className="activity_info_text">Calories brûlées (kCal)</p>
+          </div>
+        </div>
+      </div>
+
+      <ResponsiveContainer width="76%" height={260}>
+        <BarChart width={858} height={300} data={data}>
+          <XAxis stroke="#8884d8" tick={<CustomTick />} />
+          <YAxis
+            orientation="right"
+            tick={{ stroke: "#9B9EAC" }}
+            domain={[0, 550]}
+          />
+          <Tooltip content={<ActivityToolType />} />
+          <CartesianGrid stroke="#ccc" strokeDasharray="5" vertical={false} />
+          <Bar
+            dataKey="kilogram"
+            fill="#282D30"
+            barSize={10}
+            radius={[10, 10, 0, 0]}
+          />
+          <Bar
+            dataKey="calories"
+            fill="#E60000"
+            barSize={10}
+            radius={[10, 10, 0, 0]}
+          />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
   );
 }
 

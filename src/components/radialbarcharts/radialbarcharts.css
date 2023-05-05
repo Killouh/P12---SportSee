@@ -1,0 +1,36 @@
+.objective_container{
+    width: 28%;
+}
+
+.objective_title{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.radial_legend_number{
+    color:#282D30;
+    font-size: 30px;
+    margin-top: 25px;
+    font-family: 'Roboto';
+    margin-bottom: 0;
+}
+
+
+.radial_legend_text{
+    color: #74798C;
+    font-size: 15px;
+    padding-left: 10px;
+    font-family: 'Roboto';
+}
+
+.radial_text_container {
+    position: absolute;
+    padding-left: 50px;
+  }
+  
+  .radial_text {
+    color: #20253A;
+    font-size: 16px;
+  }

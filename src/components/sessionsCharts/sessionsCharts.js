@@ -5,13 +5,13 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  CartesianGrid,
   ResponsiveContainer,
 } from "recharts";
 import { getUserAverageSessions } from "../../api/api";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import SessionToolType from "./sessiontooltype";
 
 /**
  * Get the user activity and render the LineChart called from userpage
@@ -30,7 +30,6 @@ export default function SesssionsCharts(props) {
     const getData = async () => {
       const request = await getUserAverageSessions(id);
       if (!request) return navigate("/404");
-      console.log(request.data.sessions);
       const formatData = request.data.sessions.map((data) => {
         switch (data.day) {
           case 1:
@@ -58,18 +57,22 @@ export default function SesssionsCharts(props) {
   if (data.length === 0) return null;
 
   return (
-    <ResponsiveContainer width="25%" height={260}>
-      <LineChart
-        data={data}
-        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis tickFormatter={(value) => data[value].day} />
-        <YAxis hide />
-        <Tooltip />
-        <Line type="monotone" dataKey="sessionLength" stroke="#8884d8" />
-      </LineChart>
-    </ResponsiveContainer>
+    <div className="session_container">
+      <div className="session_title">
+        <h2 className="session_title_text">Durée moyenne des sessions</h2>
+      </div>
+      <ResponsiveContainer width="100%" height={220}>
+        <LineChart
+          data={data}
+          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+        >
+          <XAxis tickFormatter={(value) => data[value].day} tick={{ stroke: "white" }} axisLine={false} />
+          <YAxis hide />
+          <Tooltip content={<SessionToolType />} />
+          <Line type="monotone" dataKey="sessionLength" stroke="white" strokeWidth={2} dot={false} />
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
   );
 }
 

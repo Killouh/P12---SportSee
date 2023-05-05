@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-left: 10%;
+    margin-left: 8%;
 
     font-family: 'Roboto';
 }
@@ -37,7 +37,7 @@
 
 .activity{
     width: 100%;
-    margin-left:12%;
+    margin-left:10.5%;
 }
 
 .session{
@@ -45,6 +45,8 @@
     display: flex;
     flex-direction: row;
     margin-left: 10.5%;
+    margin-top:2%;
+    gap: 2%;
 }
 
 .energycards_container{

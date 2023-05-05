@@ -1,5 +1,4 @@
 p {
-    font: "roboto";
     font-weight: bold;
 }
 
@@ -12,7 +11,7 @@ p {
     width: 258px;
     border-radius: 5px;
     background: rgba(211, 211, 211, 0.1);
-    margin-bottom: 10px;
+    margin-bottom: 13%;
 }
 
 .logo_card {

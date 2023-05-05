@@ -1,0 +1,29 @@
+.session_container{
+    background-color: #FF0000;
+    border-radius: 5px;
+    width: 28%;
+}
+.session_title{
+    width: 75%;
+}
+.session_title_text{
+    color: white;
+    font-size: 15px;
+    opacity: 0.5;
+    padding-left: 10px;
+    font-family: 'Roboto';
+}
+
+.session_tooltip_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 2px 4px 0px #00000005;
+    width: 50px;
+    height: 40px;
+}
+.session_tooltip_text{
+    font-size: 12px;
+
+}

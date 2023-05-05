@@ -51,10 +51,11 @@ export default function RadarCharts(props) {
   if (data.length === 0) return null;
 
   return (
-    <ResponsiveContainer width="25%" height={260}>
-      <RadarChart outerRadius={90} width={730} height={250} data={data}>
+    <div className="radar_container">
+    <ResponsiveContainer width="100%" height={260}>
+      <RadarChart outerRadius={90} width={730} height={250} data={data} angleOffset={20}>
         <PolarGrid />
-        <PolarAngleAxis dataKey="kind" />
+        <PolarAngleAxis dataKey="kind" stroke="white" fontSize={13}/>
         <PolarRadiusAxis
           angle={30}
           domain={[0, 150]}
@@ -62,12 +63,13 @@ export default function RadarCharts(props) {
         />
         <Radar
           dataKey="value"
-          stroke="#82ca9d"
-          fill="#82ca9d"
+          stroke="red"
+          fill="red"
           fillOpacity={0.6}
         />
       </RadarChart>
     </ResponsiveContainer>
+    </div>
   );
 }
 

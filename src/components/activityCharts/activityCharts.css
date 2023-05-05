@@ -1,0 +1,64 @@
+.activity_container{
+  height: 320px;
+}
+
+.activity_title {
+  display: flex;
+  justify-content: space-between;
+  width: 72%;
+  color: #20253A;
+}
+
+.activity_legend {
+  align-items: center;
+  display: flex;
+  flex: row;
+}
+
+.activity_info {
+  display: flex;
+  align-items: center;
+}
+
+.activity_info_icon.kg {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+  border-radius: 10px;
+  background-color: #282d30;
+}
+
+.activity_info_icon.cal {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+  border-radius: 10px;
+  background-color: #e60000;
+}
+
+.activity_info_text{
+    color:#74798C;
+}
+
+.activity_info_text.kg{
+    padding-right: 10px;
+}
+
+.activity_tooltip_container {
+  display: flex;
+  flex-direction: column;
+  background-color: #e60000;
+  height: 90px;
+  width: 60px;
+  justify-content: center;
+  box-shadow: 0px 2px 4px 0px #00000005;
+}
+
+.activity_tooltip_text {
+  font-size: 13px;
+  color: white;
+}
