@@ -8,7 +8,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Project's presentation
+## Project's Summary
 
 SportSee is a startup dedicated to sport's coaching. The purpose of this project is to developp a brand new Dashboard's version of their application, where the user can check any important data about his sport's practice.
 
