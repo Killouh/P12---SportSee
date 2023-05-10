@@ -1,4 +1,10 @@
+[![forthebadge](https://github.com/KD-Kongo-Dervilon/Mbissi_dervilon_12_24042022/raw/main/made-with-create-react-app.svg)](https://create-react-app.dev/)
+[![forthebadge](https://github.com/KD-Kongo-Dervilon/Mbissi_dervilon_12_24042022/raw/main/uses-recharts.svg)](https://recharts.org/en-US/)
+[![forthebadge](https://camo.githubusercontent.com/ab4c3c731a174a63df861f7b118d6c8a6c52040a021a552628db877bd518fe84/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f72656163742d2532333230323332612e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d7265616374266c6f676f436f6c6f723d253233363144414642)](https://react.dev/)
 [![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com)
+[![forthebadge](https://camo.githubusercontent.com/b47580b7e8e0b4ce9bb718070140318f72d316a0c88e0dd53a5ac4b0bdfc755e/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4e504d2d2532333030303030302e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d6e706d266c6f676f436f6c6f723d7768697465)](https://camo.githubusercontent.com/b47580b7e8e0b4ce9bb718070140318f72d316a0c88e0dd53a5ac4b0bdfc755e/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4e504d2d2532333030303030302e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d6e706d266c6f676f436f6c6f723d7768697465)
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
