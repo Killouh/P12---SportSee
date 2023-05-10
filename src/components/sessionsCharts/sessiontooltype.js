@@ -1,5 +1,11 @@
 import "./sessionscharts.css";
 
+/** create a custom tooltype for the user activity LineChart
+ * @param  {bool} active
+ * @param  {array} payload
+ * @return {JSX}
+ */
+
 export default function SessionToolType({active, payload}) {
     if (active){
 
