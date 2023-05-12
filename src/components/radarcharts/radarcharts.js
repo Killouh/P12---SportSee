@@ -16,7 +16,7 @@ import PropTypes from "prop-types";
  *
  * @param {string} id User id
  * @param {id: number, kind:{}, data[] }, An Array with user performance data
- * @returns {JSX}
+ * @returns {JSX} => Radar Charts with props parameters
  */
 
 export default function RadarCharts(props) {

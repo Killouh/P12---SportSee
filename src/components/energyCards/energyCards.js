@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 /**
  * Get the user info and render the energy cards called from userpage
  * @param {props[info: string, text: string, type: string ]}, Props from getUserInfos called from userpage
- * @returns {JSX}
+ * @returns {JSX} => render the four different energy cards (with their own css and logos)
  */
 
 export default function EnergyCards(props) {

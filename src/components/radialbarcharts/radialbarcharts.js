@@ -11,7 +11,7 @@ import PropTypes from "prop-types";
 /**
  * Get the user info and render the energy cards called from userpage
  * @param {props[data{}]}, Props from getUserInfos called from userpage
- * @returns {JSX}
+ * @returns {JSX} => Radialbar Charts with props parameters
  */
 
 export default function RadialBarCharts(props) {

@@ -18,7 +18,7 @@ import ActivityToolType from "./activitytooltype";
  *
  * @param {string} id User id
  * @param {id: number, session[] }, An Array with user information data
- * @returns {JSX}
+ * @returns {JSX} => Activity Charts with props parameters
  */
 
 export default function ActivityCharts(props) {

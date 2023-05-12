@@ -1,9 +1,10 @@
 import "./sessionscharts.css";
+import PropTypes from "prop-types";
 
 /** create a custom tooltype for the user activity LineChart
- * @param  {bool} active
- * @param  {array} payload
- * @return {JSX}
+ * @param  {bool} active , active selection with cursor
+ * @param  {array} payload , Data stored in the active selection
+ * @return {JSX} => Activity LineChart Tooltip with active parameters
  */
 
 export default function SessionToolType({active, payload}) {
@@ -17,3 +18,8 @@ export default function SessionToolType({active, payload}) {
         }
         return null
     }
+
+    SessionToolType.propTypes = {
+        active: PropTypes.bool,
+        payload: PropTypes.array,
+      };

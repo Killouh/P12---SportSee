@@ -18,7 +18,7 @@ import SessionToolType from "./sessiontooltype";
  *
  * @param {string} id User id
  * @param {id: number, day: number, sessionLength: number}, An Array with user average session data
- * @returns {JSX}
+ * @returns {JSX} => Session Charts with props parameters
  */
 
 export default function SesssionsCharts(props) {
