@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./userpage.css";
-import { getUserInfos } from "../../api/api";
+import { getUserInfos, UserInfo  } from "../../api/api";
 
 // Components :
 import ActivityCharts from "../../components/activitycharts/activitycharts";
@@ -20,21 +20,33 @@ import RadialBarCharts from "../../components/radialbarcharts/radialbarcharts";
  */
 
 export default function UserPage() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     const getData = async () => {
-      const request = await getUserInfos(id);
-      if (!request) return navigate("/404");
-      setData(request.data);
+      try {
+        const request = await getUserInfos(id);
+        if (!request) return navigate("/404");
+
+        const userInfo = new UserInfo(
+          request.id,
+          request.userInfos,
+          request.todayScore,
+          request.keyData
+        );
+
+        setData(userInfo);
+      } catch (error) {
+        console.log(error);
+      }
     };
     getData();
   }, [id, navigate]);
 
-  // If the data is still being fetched, don't render anything.
-  if (data.length === 0) return null;
+
+  if (data === null) return null;
 
   return (
     <div className="body_home">
@@ -62,7 +74,7 @@ export default function UserPage() {
           <EnergyCards
             className="energycards_location"
             info={`${data.keyData.carbohydrateCount}g`}
-            text="Glucides"
+            text="Calories"
             id={id}
             type="carbohydrateCount"
           />
@@ -76,7 +88,7 @@ export default function UserPage() {
           <EnergyCards
             className="energycards_location"
             info={`${data.keyData.calorieCount}kCal`}
-            text="Calories"
+            text="Glucides"
             id={id}
             type="calorieCount"
           />

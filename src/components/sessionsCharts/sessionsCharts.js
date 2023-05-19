@@ -7,7 +7,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { getUserAverageSessions } from "../../api/api";
+import { getUserAverageSessions, UserAverageSessions } from "../../api/api";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -29,8 +29,17 @@ export default function SesssionsCharts(props) {
   useEffect(() => {
     const getData = async () => {
       const request = await getUserAverageSessions(id);
-      if (!request) return navigate("/404");
-      const formatData = request.data.sessions.map((data) => {
+
+      if (!request) return alert("data error");
+
+      const userAverageSessions = new UserAverageSessions(
+        request.userId,
+        request.sessions
+
+      );
+    setData(userAverageSessions);
+
+      const formatData = userAverageSessions.sessions.map((data) => {
         switch (data.day) {
           case 1:
             return { ...data, day: "L" };

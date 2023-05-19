@@ -8,7 +8,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import "./activitycharts.css";
-import { getUserActivity } from "../../api/api";
+import { getUserActivity, UserActivity } from "../../api/api";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import ActivityToolType from "./activitytooltype";
@@ -17,24 +17,29 @@ import ActivityToolType from "./activitytooltype";
  * Get the user activity and render the BarChart called from userpage
  *
  * @param {string} id User id
- * @param {id: number, session[] }, An Array with user information data
+ * @param {userId: number, sessions[] }, An Array with user information data
  * @returns {JSX} => Activity Charts with props parameters
  */
 
 export default function ActivityCharts(props) {
   const { id } = props;
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([null]);
 
   useEffect(() => {
     const getData = async () => {
       const request = await getUserActivity(id);
       if (!request) return alert("data error");
 
-      setData(request.data.sessions);
+          const userActivity = new UserActivity(
+          request.userId,
+          request.sessions
+
+        );
+      setData(userActivity);
     };
     getData();
   }, [id]);
-  if (data.length === 0) return null;
+  if (data === null) return null;
 
   // Customised function for axe's ticks
   const CustomTick = ({ x, y, payload }) => {
@@ -64,7 +69,7 @@ export default function ActivityCharts(props) {
       </div>
 
       <ResponsiveContainer width="76%" height={260}>
-        <BarChart width={858} height={300} data={data}>
+        <BarChart width={858} height={300} data={data.sessions}>
           <XAxis stroke="#8884d8" tick={<CustomTick />} />
           <YAxis
             orientation="right"

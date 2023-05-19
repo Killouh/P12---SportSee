@@ -7,7 +7,7 @@ import {
   Radar,
   ResponsiveContainer,
 } from "recharts";
-import { getUserPerformance } from "../../api/api";
+import { getUserPerformance, UserPerformance } from "../../api/api";
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
@@ -15,7 +15,7 @@ import PropTypes from "prop-types";
  * Get the user activity and render the RadarChart called from userpage
  *
  * @param {string} id User id
- * @param {id: number, kind:{}, data[] }, An Array with user performance data
+ * @param {userId: number, kind:{}, data[] }, An Array with user performance data
  * @returns {JSX} => Radar Charts with props parameters
  */
 
@@ -26,7 +26,16 @@ export default function RadarCharts(props) {
     const getData = async () => {
       const request = await getUserPerformance(id);
       if (!request) return alert("data error");
-      const formatData = request.data.data.map((data) => {
+
+      const userPerformance = new UserPerformance(
+        request.userId,
+        request.kind,
+        request.data,
+
+      );
+    setData(userPerformance);
+
+      const formatData = userPerformance.data.map((data) => {
         switch (data.kind) {
           case 1:
             return { ...data, kind: "Cardio" };
